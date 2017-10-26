@@ -1,0 +1,227 @@
+/*******************************************/
+/*                 FICHE                   */
+/*******************************************/
+
+
+/**** IMPORT ****/
+@import "functions.less";
+@import "variables.less";
+
+
+/***** GLOBAL *****/
+
+/* Body */
+body {
+	font-family: @normal-font-family;
+	font-size: @base-font-size;
+	color: @normal-font-color;
+	line-height: @normal-line-height;
+	text-align: center;
+	width: 85%;
+	max-width: 900px;
+
+	a, a:visited, a:active {
+		color: @link-color;
+		text-decoration: none;
+	}
+	a:hover {
+		color: @link-color-hover;
+		text-decoration: none;
+	}
+
+	#body {
+		background: @fiche-body-background;
+		background-size: 100%;
+		border: @fiche-body-border;
+		.border-radius( @fiche-body-border-radius );
+		.box-shadow( @fiche-body-box-shadow );
+		position: relative;
+	}
+}
+
+/* Banner */
+#banner {
+	margin: 0px;
+	display: block;
+	width: 100%;
+	img { width: 100%; }
+}
+
+/* Main titles */
+h1 {
+	font-family: @fiche-title-font-family;
+	color: @fiche-title-font-color;
+	font-size: @fiche-title-font-size;
+	font-variant: @fiche-title-font-variant;
+
+	margin-top: 30px;
+	position: relative;
+	z-index: 1;
+
+    &:before {
+		content: "";
+		border-top: 2px solid @fiche-title-font-color;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 95%;
+        z-index: -1;
+    }
+
+    span { 
+        background: @fiche-body-background; 
+        padding: 0 15px; 
+    }
+}
+
+/* Paragraphes */
+.paragraphe {
+	text-align: justify;
+	padding: 10px 20px;
+	margin: 10px;
+	background: @fiche-paragraphe-background;
+	border: @fiche-paragraphe-border;
+	.border-radius(10px);
+	.box-shadow();
+}
+
+/* Lists */
+.dot-links {
+	list-style-type: none;
+
+	li {
+		margin-bottom: 10px;
+	}
+	a:before {
+		content: "•• ";
+	}
+}
+
+/**** ACCORDION *****/
+.accordion {
+	display: flex;
+
+	.accordion-toggle {
+		border-right: @fiche-accordion-title-border-right;
+		background: @fiche-accordion-title-background;
+		cursor: pointer;
+		height: @fiche-accordion-title-height;
+		width: @fiche-accordion-title-width;
+		min-width: @fiche-accordion-title-width;
+		position: relative;
+
+		h2 {
+			margin: 0px;
+			left: 0;
+			position: absolute;
+			line-height: @fiche-accordion-title-width;
+			height: @fiche-accordion-title-width;
+			width: @fiche-accordion-title-height;
+
+			font-family: @fiche-accordion-title-font-family;
+			color: @fiche-accordion-title-font-color;
+			.transition( color .5s ease-in );
+
+			.rotate-left();
+		}
+		h2:hover {
+			color: @fiche-accordion-title-font-color-hover;
+		}
+	}
+	.accordion-toggle.open {
+		pointer-events: none;
+		cursor: normal;
+		h2 {
+			color: @fiche-accordion-title-font-color-hover;
+		}
+	}
+
+	.accordion-content {
+		display: block;
+		height: @fiche-accordion-title-height;
+		background: @fiche-element-background;
+		overflow: scroll;
+		.box-shadow( @fiche-element-box-shadow );
+	}
+	.accordion-toggle.open + .accordion-content {
+		flex: 1;
+	}
+}
+
+/***** STAFF *****/
+.staff-icons {
+	float: left;
+	width: 200px;
+	margin: 10px;
+	img {
+		.box-shadow();
+		cursor: pointer;
+		opacity: 0.7;
+	}
+	img:hover {
+		opacity: 1;
+	}
+	img.open {
+		opacity: 1;
+		.box-shadow(0 0 10px #fffbce);
+	}
+}
+.staff-infos {
+	margin-left: 210px;
+	position: relative;
+	div {
+		position: absolute;
+		width: 70%;
+	}
+	
+	div:not( #placeholder ) {
+		display: none;
+	}
+
+	div#placeholder {
+		opacity: 0.7;
+		font-style: italic;
+	}
+	
+	h3 {
+		text-align: center;
+		margin: 5px 0px;
+		small {
+			font-weight: normal;
+		}
+	}
+	p {
+		margin: 15px 0px;
+	}
+}
+
+/***** NEWS *****/
+.news {
+	display: flex;
+	justify-content: space-between;
+	background: @fiche-element-background;
+	.box-shadow( @fiche-element-box-shadow );
+}
+
+/***** CONCLUSION *****/
+.conclusion {
+	font-family: @fiche-title-font-family;
+	font-variant: @fiche-title-font-variant;
+	font-size: @fiche-title-font-size;
+	text-align: center;
+	line-height: 28px;
+	width: 100%;
+	padding: 6px 0px;
+	background: @fiche-element-background;
+	.box-shadow( @fiche-element-box-shadow );
+	a {
+		display: block;
+		margin: 10px 0px;
+	}
+}
+img.logo {
+	margin: 10px 0px;
+}
